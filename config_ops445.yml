@@ -1,0 +1,43 @@
+---
+- hosts: kirandeep-kaur51
+  user: student
+  become: yes
+  tasks:
+    - name: update Apache (httpd) installed 
+      action: yum name=httpd state=latest
+
+    - name: install extra packages repository for enterprise Linux (EPEL) 
+      yum: 
+          name: epel-release 
+          state: present
+
+    - name: remove 'tree' package
+      yum:
+        name: tree
+        state: absent 
+
+    - name: set the hostname to your Seneca username 
+      hostname: 
+        name: "kirandeep-kaur51"
+
+    - name: configure the new user account.One can ssh to it without password 
+      user:
+        name: "kirandeep-kaur51"
+        groups: wheel
+        append: yes
+        create_home: yes
+
+    - name: SSH key for kirandeep-kaur51 user
+      authorized_key:
+        user: "kirandeep-kaur51"
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+    - name: setup a directory structure using a loop 
+      file:
+        path: "~/ops445/lab{{ item }}"
+        state: directory
+        owner: "kirandeep-kaur51"
+        group: "kirandeep-kaur51"
+        mode: '0666'
+      with_sequence: start=1 end=9
