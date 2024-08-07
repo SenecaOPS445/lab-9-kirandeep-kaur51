@@ -1,0 +1,38 @@
+
+PLAY [kirandeep-kaur51] ********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [kirandeep-kaur51]
+
+TASK [update Apache (httpd) installed] *****************************************
+ok: [kirandeep-kaur51]
+
+TASK [install extra packages repository for enterprise Linux (EPEL)] ***********
+ok: [kirandeep-kaur51]
+
+TASK [remove 'tree' package] ***************************************************
+ok: [kirandeep-kaur51]
+
+TASK [set the hostname to your Seneca username] ********************************
+ok: [kirandeep-kaur51]
+
+TASK [configure the new user account.One can ssh to it without password] *******
+ok: [kirandeep-kaur51]
+
+TASK [SSH key for kirandeep-kaur51 user] ***************************************
+ok: [kirandeep-kaur51]
+
+TASK [setup a directory structure using a loop] ********************************
+ok: [kirandeep-kaur51] => (item=1)
+ok: [kirandeep-kaur51] => (item=2)
+ok: [kirandeep-kaur51] => (item=3)
+ok: [kirandeep-kaur51] => (item=4)
+ok: [kirandeep-kaur51] => (item=5)
+ok: [kirandeep-kaur51] => (item=6)
+ok: [kirandeep-kaur51] => (item=7)
+ok: [kirandeep-kaur51] => (item=8)
+ok: [kirandeep-kaur51] => (item=9)
+
+PLAY RECAP *********************************************************************
+kirandeep-kaur51           : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
